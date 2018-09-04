@@ -14,7 +14,7 @@ for(var i = 0;i<lis.length;i++)
 	
 	lis[i].addEventListener("click",function(){
 		this.classList.add("strike");
-		this.classList.add("colorchange");	
+		this.classList.add("colorchangeRed");	
 			
 	});
 }
