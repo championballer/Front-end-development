@@ -7,6 +7,7 @@ var colors = ["rgb(255, 0, 0)",
 	 
 var squares = document.querySelectorAll(".square");
 var colorSelected = colors[3];
+var message = document.querySelector("#message");
 
 var helement = document.querySelector("#helement");
 helement.textContent = colorSelected;
@@ -18,15 +19,25 @@ for(var i = 0;i<squares.length;i++)
 		var clicked = this.style.backgroundColor;
 		if(clicked == colorSelected)
 		{
-			alert("Correct");
+			colorsync(clicked);
+			message.textContent = "Correct";
 		}
 		
 		else
 		{
-			alert("Wrong");
+			this.style.backgroundColor="black";
+			message.textContent = "Try Again";
 		}
 		
 	});
 }	  
 
+
+function colorsync(color)
+{
+	for(var j = 0;j<squares.length;j++)
+	{
+		squares[j].style.backgroundColor = color;
+	}
+}
 
