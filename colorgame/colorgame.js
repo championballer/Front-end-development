@@ -14,6 +14,7 @@ reset.addEventListener("click",function(){
 	setup();
 	colorSelected = picker();
 	message.textContent="";
+	reset.textContent = "New Colors";
 });
 
 var helement = document.querySelector("#helement");
@@ -32,6 +33,7 @@ function setup()
 			colorsync(clicked);
 			message.textContent = "Correct";
 			h1.style.backgroundColor = clicked;
+			reset.textContent = "Play Again?";
 		}
 		
 		else
