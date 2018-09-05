@@ -1,24 +1,12 @@
-var choice = Number(prompt("3 or 6"));
-
-var colors = generateColors(choice);
-var squares = document.querySelectorAll(".square");
-var colorSelected = picker();
-var message = document.querySelector("#message");
-var h1 = document.querySelector("h1");
-var reset = document.querySelector("#reset");
-
-setup();
-reset.addEventListener("click",function(){
+function resetfunc()
+{
 	colors = generateColors(choice);
 	h1.style.backgroundColor = "black";
 	setup();
 	colorSelected = picker();
 	message.textContent="";
 	reset.textContent = "New Colors";
-});
-
-var helement = document.querySelector("#helement");
-helement.textContent = colorSelected;
+}
 
 function setup()
 {
@@ -50,7 +38,7 @@ function setup()
 
 function colorsync(color)
 {
-	for(var j = 0;j<squares.length;j++)
+	for(var j = 0;j<choice;j++)
 	{
 		squares[j].style.backgroundColor = color;
 	}
@@ -63,6 +51,14 @@ function generateColors(choice)
 	for(var i = 0;i<choice;i++)
 	{
 		arr.push(generateColor());
+	}
+	
+	if(choice==3)
+	{
+		for(var i = 3;i<6;i++)
+		{
+			arr.push("rgb(0, 0, 0)");
+		}
 	}
 	
 	return arr;
@@ -81,9 +77,40 @@ function generateColor()
 
 function picker()
 {
-	var picked = Math.floor(Math.random()*(colors.length));
+	var picked = Math.floor(Math.random()*(choice));
 	return colors[picked];
 }
+
+
+
+var easybut = document.querySelector("#easbut");
+var hardbut = document.querySelector("#hardbut");
+var choice = 6;
+
+easybut.addEventListener("click",function(){
+	choice = 3;
+	resetfunc();
+});
+
+hardbut.addEventListener("click",function(){
+	choice = 6;
+	resetfunc();
+});
+
+var colors = generateColors(choice);
+var squares = document.querySelectorAll(".square");
+var colorSelected = picker();
+var message = document.querySelector("#message");
+var h1 = document.querySelector("h1");
+var reset = document.querySelector("#reset");
+
+setup();
+reset.addEventListener("click",resetfunc);
+
+
+var helement = document.querySelector("#helement");
+helement.textContent = colorSelected;
+
 
 
 
