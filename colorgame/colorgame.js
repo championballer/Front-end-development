@@ -4,6 +4,7 @@ function resetfunc()
 	h1.style.backgroundColor = "black";
 	setup();
 	colorSelected = picker();
+	helement.textContent = colorSelected;
 	message.textContent="";
 	reset.textContent = "New Colors";
 }
@@ -90,11 +91,17 @@ var choice = 6;
 easybut.addEventListener("click",function(){
 	choice = 3;
 	resetfunc();
+	helement.textContent = colorSelected;
+	this.classList.add("selected");
+	hardbut.classList.remove("selected");
 });
 
 hardbut.addEventListener("click",function(){
 	choice = 6;
 	resetfunc();
+	helement.textContent = colorSelected;	
+	this.classList.add("selected");
+	easbut.classList.remove("selected");
 });
 
 var colors = generateColors(choice);

@@ -18,8 +18,11 @@ body
 {
 	background-color:white;
 	color:black;
-	padding-left:45%;
+	padding-left:30%;
+	padding-right:30%;
 	margin-bottom:30px;
+	padding-top:10px;
+	padding-bottom:10px;
 }
 
 #container
@@ -31,11 +34,21 @@ body
 h1
 {
 	margin:0;
-	padding:50px;
+	padding:100px;
 	color:white;
 	text-align:center;
 }
 
+.selected
+{
+	background-color:blue;
+}
+
+button
+{
+	height:40px;
+	margin:10px;
+}
 
 
 
