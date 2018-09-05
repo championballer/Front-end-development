@@ -1,26 +1,37 @@
-var colors = ["rgb(255, 0, 0)",
-		"rgb(0, 255, 0)",
-		"rgb(0, 0, 255)",
-		"rgb(255, 255, 0)",
-		"rgb(0, 255, 255)",
-		"rgb(255, 0, 255)"];
-	 
+var choice = Number(prompt("3 or 6"));
+
+var colors = generateColors(choice);
 var squares = document.querySelectorAll(".square");
-var colorSelected = colors[3];
+var colorSelected = picker();
 var message = document.querySelector("#message");
+var h1 = document.querySelector("h1");
+var reset = document.querySelector("#reset");
+
+setup();
+reset.addEventListener("click",function(){
+	colors = generateColors(choice);
+	h1.style.backgroundColor = "black";
+	setup();
+	colorSelected = picker();
+	message.textContent="";
+});
 
 var helement = document.querySelector("#helement");
 helement.textContent = colorSelected;
-for(var i = 0;i<squares.length;i++)
+
+function setup()
 {
-	squares[i].style.backgroundColor = colors[i];
+	for(var i = 0;i<squares.length;i++)
+	{
+		squares[i].style.backgroundColor = colors[i];
 	
-	squares[i].addEventListener("click",function(){
+		squares[i].addEventListener("click",function(){
 		var clicked = this.style.backgroundColor;
-		if(clicked == colorSelected)
+		if(clicked === colorSelected)
 		{
 			colorsync(clicked);
 			message.textContent = "Correct";
+			h1.style.backgroundColor = clicked;
 		}
 		
 		else
@@ -29,8 +40,10 @@ for(var i = 0;i<squares.length;i++)
 			message.textContent = "Try Again";
 		}
 		
-	});
-}	  
+		});
+	}	  
+
+}
 
 
 function colorsync(color)
@@ -40,4 +53,35 @@ function colorsync(color)
 		squares[j].style.backgroundColor = color;
 	}
 }
+
+function generateColors(choice)
+{
+	var arr = [];
+	
+	for(var i = 0;i<choice;i++)
+	{
+		arr.push(generateColor());
+	}
+	
+	return arr;
+}
+
+function generateColor()
+{
+	r = Math.floor(Math.random()*256);
+	g = Math.floor(Math.random()*256);
+	b = Math.floor(Math.random()*256);
+	
+	return "rgb("+r+", "+g+", "+b+")";
+
+}
+
+
+function picker()
+{
+	var picked = Math.floor(Math.random()*(colors.length));
+	return colors[picked];
+}
+
+
 
