@@ -3,6 +3,7 @@ body
 	background-color:black;
 	padding:0;
 	margin:0;
+	font-family: 'Cabin', sans-serif;
 }
 
 .square
@@ -11,7 +12,9 @@ body
 	width:30%;
 	float:left;
 	margin:1.66%;
-	padding-bottom:30%
+	padding-bottom:30%;
+	transition: background 0.5s;
+	
 }
 
 #strip
@@ -20,9 +23,7 @@ body
 	color:black;
 	padding-left:30%;
 	padding-right:30%;
-	margin-bottom:30px;
-	padding-top:10px;
-	padding-bottom:10px;
+	margin-bottom:20px;
 }
 
 #container
@@ -37,6 +38,8 @@ h1
 	padding:100px;
 	color:white;
 	text-align:center;
+	background-color:steelblue;
+	text-transform:uppercase;
 }
 
 .selected
@@ -46,8 +49,8 @@ h1
 
 button
 {
-	height:40px;
-	margin:10px;
+	height:20px;
+	margin:4px;
 }
 
 

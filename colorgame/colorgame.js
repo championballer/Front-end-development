@@ -1,7 +1,7 @@
 function resetfunc()
 {
 	colors = generateColors(choice);
-	h1.style.backgroundColor = "black";
+	h1.style.backgroundColor = "steelblue";
 	setup();
 	colorSelected = picker();
 	helement.textContent = colorSelected;
